@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --headerColor: #fbbf24;
+    --noteColor: #fef3c7;
+    --menuColor: #fde68a;
+    --font: 'Roboto', sans-serif;
+    --backgroundColor: #f3f4f6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.text {
+    font-family: var(--font);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+#header {
+    width: 100%;
+    background-color: var(--headerColor);
+    color: white;
+    font-size: 30px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+#content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: var(--backgroundColor);
+    font-style: italic;
+    color: #9ca3af;
+}
+
+#menu {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 100%;
+    background-color: var(--menuColor);
+    border-radius: 0px 10px 10px 0px;
+    padding: 10px;
+    gap: 10px;
+}
+
+#toDoCont {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#toDo {
+    margin: 30px;
+    flex: auto;
+    background-color: var(--noteColor);
+    border-radius: 10px;
+}
+
+#addProject {
+    background-image: url(./media/plus-circle-outline.svg);
+    mix-blend-mode: overlay;
+    height: 30px;
+    width: 30px;
+    transition: all ease-in-out .1s;
+}
+
+#addProject:hover {
+    background-image: url(./media/plus-circle.svg);
+}
+
+#projectNameInput {
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    font-size: larger;
+    height: 20px;
+    width: min-content;
+    text-align: center;
+}
+
+#projectNameInput:focus {
+    outline: none;
+}
