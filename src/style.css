@@ -6,6 +6,7 @@
     --menuColor: #fde68a;
     --font: 'Roboto', sans-serif;
     --backgroundColor: #f3f4f6;
+    --textColor: #312c1f;
 }
 
 * {
@@ -40,8 +41,6 @@ body {
     height: 100%;
     width: 100%;
     background-color: var(--backgroundColor);
-    font-style: italic;
-    color: #9ca3af;
 }
 
 #menu {
@@ -63,6 +62,8 @@ body {
     width: 100%;
     justify-content: center;
     align-items: center;
+    font-style: italic;
+    color: #9ca3af;
 }
 
 #toDo {
@@ -84,16 +85,64 @@ body {
     background-image: url(./media/plus-circle.svg);
 }
 
-#projectNameInput {
-    border: none;
-    border-bottom: 1px solid black;
-    background-color: transparent;
+.project {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.projectCont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: larger;
     height: 20px;
-    width: min-content;
+    width: 100%;
     text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: var(--textColor);
+}
+
+.addedProject {
+    justify-content: start;
+}
+
+.projectName {
+    border-bottom: 1px solid var(--headerColor);
+}
+
+#projectNameInput {
+    border: none;
+    background-color: transparent;
+    all: inherit;
+    font-family: var(--font);
 }
 
 #projectNameInput:focus {
     outline: none;
+}
+
+#projectSubmit {
+    background-image: url(./media/check-circle-outline.svg);
+    mix-blend-mode: overlay;
+    height: 30px;
+    width: 30px;
+    transition: all ease-in-out .1s;
+}
+
+#projectSubmit:hover {
+    background-image: url(./media/check-circle.svg);
+}
+
+.expandProject {
+    mix-blend-mode: overlay;
+    height: 30px;
+    width: 30px;
+}
+
+.toDoCont {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
 }
