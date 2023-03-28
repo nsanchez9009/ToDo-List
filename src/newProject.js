@@ -17,9 +17,10 @@ const newProject = () => {
     projectNameInput.id = "projectNameInput";
     projectNameInput.classList.add("text");
     projectNameInput.setAttribute("type", "text");
-    projectNameInput.setAttribute("maxLength", "23");
+    projectNameInput.setAttribute("maxLength", "16");
     projectNameInput.setAttribute("placeHolder", "Project Name");
     projectCont.appendChild(projectNameInput);
+    projectNameInput.focus();
 
     const projectSubmit = document.createElement('div');
     projectSubmit.id = 'projectSubmit';
@@ -29,12 +30,16 @@ const newProject = () => {
         submitProject(project, projectCont, projectNameInput);
     });
 
-    const toDoCont = document.createElement('div');
-    toDoCont.classList.add("toDoCont");
+    projectNameInput.addEventListener("keydown", (key) => {
+        if (key.key === 'Enter') {
+            submitProject(project, projectCont, projectNameInput);
+        }
+    });
 
     project.appendChild(projectCont);
-    project.appendChild(toDoCont);
     menu.appendChild(project);
+
+    window.projects[window.projectNumber] = [];
 }
 
 export {

@@ -1,15 +1,20 @@
 const initPage = () => {
     const body = document.querySelector("body");
 
+    const main = document.createElement("div");
+    main.id = "main";
+    body.appendChild(main);
+
+
     const header = document.createElement("div");
     header.id = 'header';
     header.classList.add("text");
     header.textContent = "To-Do List";
-    body.appendChild(header);
+    main.appendChild(header);
 
     const content = document.createElement("div");
     content.id = "content";
-    body.appendChild(content);
+    main.appendChild(content);
 
     const menu = document.createElement("div");
     menu.id = "menu";

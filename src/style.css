@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+@font-face {
+    font-family: Paint;
+    src: url(./media/fonts/MS_PAIN.ttf);
+}
+
 :root {
     --headerColor: #fbbf24;
     --noteColor: #fef3c7;
@@ -15,32 +20,49 @@
     padding: 0;
 }
 
-.text {
-    font-family: var(--font);
-}
-
 body {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main {
+    display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px;
+    height: 900px;
+    width: 1400px;
+    background-color: white;
+    background: url(./media/body.png);
+    background-size: 100% 100%;
+    padding: 50px;
+}
+
+.text {
+    font-family: Paint;
 }
 
 #header {
     width: 100%;
-    background-color: var(--headerColor);
-    color: white;
-    font-size: 30px;
-    padding: 5px 10px;
+    height: 100px;
+    color: black;
+    font-size: 50px;
+    padding: 5px 20px;
+    padding-bottom: 30px;
     display: flex;
     align-items: center;
+    background-image: url(./media/headerline.png);
+    background-size: 100% 50%;
+    background-position: bottom;
+    background-repeat: no-repeat;
 }
 
 #content {
     display: flex;
     height: 100%;
-    width: 100%;
-    background-color: var(--backgroundColor);
+    width: 98%;
 }
 
 #menu {
@@ -50,11 +72,92 @@ body {
     align-items: center;
     width: 300px;
     height: 100%;
-    background-color: var(--menuColor);
-    border-radius: 0px 10px 10px 0px;
-    padding: 10px;
+    padding-right: 35px;
     gap: 10px;
+    background-image: url(./media/menuLine.png);
+    background-size: 10% 100%;
+    background-position: right;
+    background-repeat: no-repeat;
 }
+
+    #addProject {
+        background-image: url(./media/plusHollow.png);
+        background-size: contain;
+        height: 30px;
+        width: 30px;
+    }
+        #addProject:hover {
+            background-image: url(./media/plusFilled.png);
+        }
+
+    .project {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+        .projectCont {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: larger;
+            height: 20px;
+            width: 100%;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+            #projectNameInput {
+                border: none;
+                background-color: transparent;
+                all: inherit;
+                font-family: Paint;
+            }
+                #projectNameInput:focus {
+                    outline: none;
+                }
+
+            #projectSubmit {
+                background-image: url(./media/checkHollow.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                height: 30px;
+                width: 30px;
+            }
+                #projectSubmit:hover {
+                    background-image: url(./media/checkFilled.png);
+                }
+
+            .projectContLeft {
+                display: flex;
+                justify-content: start;
+                gap: 5px;
+
+            }
+
+                .expandProject {
+                    height: 17px;
+                    width: 17px;
+                }
+
+                .projectName {
+                    padding-bottom: 2px;
+                    border-bottom: 1px dashed black;
+                }
+
+            .addToDo {
+                display: none;
+                font-size: larger;
+                cursor: pointer;
+            }
+
+        .emptyProject {
+            padding-left: 22px;
+        }
+
+        .toDoName {
+            padding-left: 22px;
+        }
 
 #toDoCont {
     display: flex;
@@ -66,83 +169,134 @@ body {
     color: #9ca3af;
 }
 
-#toDo {
-    margin: 30px;
-    flex: auto;
-    background-color: var(--noteColor);
-    border-radius: 10px;
-}
+    #toDoForm {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        background-image: url(./media/toDoCont.png);
+        background-size: 100% 100%;
+        height: 100%;
+        width: 100%;
+        padding: 35px;
+        gap: 20px;
+        color: black;
+    }
 
-#addProject {
-    background-image: url(./media/plus-circle-outline.svg);
-    mix-blend-mode: overlay;
-    height: 30px;
-    width: 30px;
-    transition: all ease-in-out .1s;
-}
+        .toDoFormInput {
+            height: auto;
+            width: auto;
+            border: none;
+            border-bottom: 1px dashed black;
+        }
+            .toDoFormInput:focus {
+                outline: none;
+            }
+        
+        #toDoFormTitle {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+            font-size: 40px;
+        }
 
-#addProject:hover {
-    background-image: url(./media/plus-circle.svg);
-}
+        #toDoFormDesc {
+            grid-column: 1 / 4;
+            grid-row: 2 / 3;
+            font-size: 20px;
+            text-align: bottom;
+        }
 
-.project {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
+        #toDoFormDate {
+            grid-column: 4 / 5;
+            grid-row: 1 / 2;
+            font-size: 20px;
+            text-align: end;
+            border: none;
+        }
 
-.projectCont {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: larger;
-    height: 20px;
-    width: 100%;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    color: var(--textColor);
-}
+        #toDoFormContent {
+            grid-column: 1 / 5;
+            grid-row: 3 / 8;
+            background-image: url(./media/toDoTextBox.png);
+            background-size: 100% 100%;
+            padding: 30px;
+            resize: none;
+            border: none;
+            font-size: 18px;
 
-.addedProject {
-    justify-content: start;
-}
+        }
 
-.projectName {
-    border-bottom: 1px solid var(--headerColor);
-}
+        #toDoFormSubmit {
+            grid-column: 4 / 5;
+            grid-row: 8 / 9;
+            height: 50px;
+            width: 50px;
+            border: none;
+            background-image: url(./media/checkHollow.png);
+            background-size: 100% 100%;
+            text-align: right;
+        }
+            #toDoFormSubmit:hover {
+                background: url(./media/checkFilled.png);
+                background-size: 100% 100%;
+            }
+    
+    .toDo {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        background-image: url(./media/toDoCont.png);
+        background-size: 100% 100%;
+        height: 100%;
+        width: 100%;
+        padding: 35px;
+        gap: 20px;
+        color: black;
+    }
+        
+        .toDoTitle {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+            font-size: 40px;
+        }
 
-#projectNameInput {
-    border: none;
-    background-color: transparent;
-    all: inherit;
-    font-family: var(--font);
-}
+        .toDoDesc {
+            grid-column: 1 / 4;
+            grid-row: 2 / 3;
+            font-size: 20px;
+            text-align: bottom;
+        }
 
-#projectNameInput:focus {
-    outline: none;
-}
+        .toDoDate {
+            grid-column: 4 / 5;
+            grid-row: 1 / 2;
+            font-size: 20px;
+            text-align: end;
+            border: none;
+        }
 
-#projectSubmit {
-    background-image: url(./media/check-circle-outline.svg);
-    mix-blend-mode: overlay;
-    height: 30px;
-    width: 30px;
-    transition: all ease-in-out .1s;
-}
+        .toDoContent {
+            grid-column: 1 / 5;
+            grid-row: 3 / 8;
+            background-image: url(./media/toDoTextBox.png);
+            background-size: 100% 100%;
+            padding: 30px;
+            resize: none;
+            border: none;
+            font-size: 18px;
 
-#projectSubmit:hover {
-    background-image: url(./media/check-circle.svg);
-}
+        }
 
-.expandProject {
-    mix-blend-mode: overlay;
-    height: 30px;
-    width: 30px;
-}
-
-.toDoCont {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid red;
-}
+        .toDoDelete {
+            grid-column: 4 / 5;
+            grid-row: 8 / 9;
+            height: 50px;
+            width: 50px;
+            border: none;
+            background-image: url(./media/checkHollow.png);
+            background-size: 100% 100%;
+            text-align: right;
+        }
+            .toDoDelete:hover {
+                background: url(./media/checkFilled.png);
+                background-size: 100% 100%;
+            }
