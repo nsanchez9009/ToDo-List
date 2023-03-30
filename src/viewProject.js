@@ -1,9 +1,8 @@
 export default function viewProject(project){
-    console.log(window.projects[project.dataset.project]);
-
     const projectNum = project.dataset.project;
 
-    if (window.projects[projectNum].length === 0){
+    if (project.querySelector(".toDoName") === null){
+
         if (project.querySelector(".emptyProject") !== null){
             return;
         }

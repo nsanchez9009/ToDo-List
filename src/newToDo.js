@@ -1,16 +1,17 @@
 import submitToDo from "./submitToDo";
+import hideToDo from "./hideToDo";
 
 export default function newToDo(project){
-    // Open a form on the right to add to do.
-    // Set title value to the title of the todo in the menu.
-    // Submit button and delete button.
-
     const toDoCont = document.querySelector("#toDoCont");
 
     if (toDoCont.textContent === "Select a To-Do"){
         toDoCont.textContent = "";
     }
-
+    
+    if (toDoCont.firstChild !== null){
+        hideToDo(toDoCont);
+    }
+    
     const toDoForm = document.createElement("form");
     toDoForm.id = "toDoForm";
 
@@ -43,8 +44,12 @@ export default function newToDo(project){
 
     const toDoFormSubmit = document.createElement("div");
     toDoFormSubmit.id = "toDoFormSubmit";
-    toDoFormSubmit.classList.add("text", "toDoFormInput");
     toDoFormSubmit.addEventListener("click", () => {
+        if (toDoFormTitle.value === ""){
+            toDoFormContent.setAttribute("placeHolder", "Please enter a title");
+            return;
+        }
+
         submitToDo(project, toDoFormTitle.value, toDoFormDesc.value, toDoFormDate.value, toDoFormContent.value);
     });
 

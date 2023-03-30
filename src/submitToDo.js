@@ -1,4 +1,5 @@
 import viewProject from "./viewProject";
+import viewToDo from "./viewToDo";
 
 export default function submitToDo(project, title, desc, date, content){
     const projectNumber = project.dataset.project;
@@ -36,6 +37,11 @@ export default function submitToDo(project, title, desc, date, content){
 
     const toDoDelete = document.createElement("div");
     toDoDelete.classList.add("toDoDelete");
+    toDoDelete.addEventListener("click", () => {
+        toDoCont.textContent = "Select a To-Do";
+        project.removeChild(toDoNameMenu);
+        viewProject(project);
+    });
 
     toDo.appendChild(toDoTitle);
     toDo.appendChild(toDoDesc);
@@ -45,10 +51,14 @@ export default function submitToDo(project, title, desc, date, content){
 
     toDoCont.appendChild(toDo);
 
-    const toDoName = document.createElement('div');
-    toDoName.classList.add("toDoName", "text");
-    toDoName.textContent = toDoObject.title;
-    project.appendChild(toDoName);
+    const toDoNameMenu = document.createElement('div');
+    toDoNameMenu.classList.add("toDoName", "text");
+    toDoNameMenu.textContent = toDoObject.title;
+    toDoNameMenu.addEventListener("click", () => {
+        viewToDo(toDoCont, toDo, toDoObject);
+    });
+
+    project.appendChild(toDoNameMenu);
 
     viewProject(project);
 }

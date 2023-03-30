@@ -1,7 +1,7 @@
 export default function hideProject(project){
     const projectNum = project.dataset.project;
 
-    if (window.projects[projectNum].length === 0){
+    if (project.querySelector(".emptyProject") !== null){
         project.removeChild(project.lastChild);
     }
 
