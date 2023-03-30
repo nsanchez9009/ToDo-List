@@ -1,3 +1,4 @@
+import hideToDo from "./hideToDo";
 import viewProject from "./viewProject";
 import viewToDo from "./viewToDo";
 
@@ -43,7 +44,7 @@ export default function submitToDo(project, title, desc, date, content){
     const toDoDelete = document.createElement("div");
     toDoDelete.classList.add("toDoDelete");
     toDoDelete.addEventListener("click", () => {
-        toDoCont.textContent = "Select a To-Do";
+        hideToDo();
         project.removeChild(toDoNameMenu);
         viewProject(project);
     });

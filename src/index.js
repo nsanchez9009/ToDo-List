@@ -16,3 +16,6 @@ addProject.addEventListener("click", () => {
     newProject();
     projectNumber++;
 });
+
+
+// Fix delete on everything. Not deleting properly.

@@ -1,15 +1,10 @@
 import submitToDo from "./submitToDo";
-import hideToDo from "./hideToDo";
 
 export default function newToDo(project){
     const toDoCont = document.querySelector("#toDoCont");
 
-    if (toDoCont.textContent === "Select a To-Do"){
+    if (toDoCont.textContent === "Select a To-Do" || toDoCont.firstChild !== null){
         toDoCont.textContent = "";
-    }
-    
-    if (toDoCont.firstChild !== null){
-        hideToDo(toDoCont);
     }
     
     const toDoForm = document.createElement("form");

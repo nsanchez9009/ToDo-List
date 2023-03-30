@@ -3,8 +3,9 @@ import chevronUp from "./media/arrowUP.png";
 import viewProject from "./viewProject";
 import hideProject from "./hideProject";
 import newToDo from "./newToDo";
+import hideToDo from "./hideToDo";
 
-export default function submitProject(project, projectCont, input){
+export default function submitProject(menu, project, projectCont, input){
     if (input.value === ""){
         input.setAttribute("placeHolder", "Invalid Name");
         return;
@@ -55,13 +56,22 @@ export default function submitProject(project, projectCont, input){
         expandProject.src = chevronDown;
         viewProject(project);
     });
+    projectCont.appendChild(addToDo);
+
+    const deleteProject = document.createElement('div');
+    deleteProject.classList.add("deleteProject");
+    deleteProject.addEventListener("click", () => {
+        menu.removeChild(project);
+        hideToDo();
+    });
+    projectCont.appendChild(deleteProject);
 
     projectCont.addEventListener("mouseover", () => {
+        deleteProject.style.display = "block";
         addToDo.style.display = "block";
     });
     projectCont.addEventListener("mouseout", () => {
+        deleteProject.style.display = "none";
         addToDo.style.display = "none";
     });
-
-    projectCont.appendChild(addToDo);
 }

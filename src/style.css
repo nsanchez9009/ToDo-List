@@ -142,7 +142,9 @@ body {
             .projectContLeft {
                 display: flex;
                 justify-content: start;
+                align-items: center;
                 gap: 5px;
+                width: 70%;
 
             }
 
@@ -157,8 +159,7 @@ body {
                 }
 
             .addToDo {
-                display: none;
-                font-size: larger;
+                display: flex;
                 cursor: pointer;
             }
 
@@ -169,6 +170,18 @@ body {
         .toDoName {
             padding-left: 22px;
         }
+
+        .deleteProject {
+            background-image: url(./media/deleteHollow.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 15px;
+            width: 15px;
+            padding-left: 22px;
+        }
+            .deleteProject:hover {
+                background-image: url(./media/trashFilled.png)
+            }
 
 #toDoCont {
     display: flex;

@@ -27,16 +27,17 @@ const newProject = () => {
     projectCont.appendChild(projectSubmit);
 
     projectSubmit.addEventListener("click", () => {
-        submitProject(project, projectCont, projectNameInput);
+        submitProject(menu, project, projectCont, projectNameInput);
     });
 
     projectNameInput.addEventListener("keydown", (key) => {
         if (key.key === 'Enter') {
-            submitProject(project, projectCont, projectNameInput);
+            submitProject(menu, project, projectCont, projectNameInput);
         }
     });
 
     project.appendChild(projectCont);
+
     menu.appendChild(project);
 
     window.projects[window.projectNumber] = [];
