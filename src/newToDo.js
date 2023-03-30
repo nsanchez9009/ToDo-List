@@ -36,6 +36,11 @@ export default function newToDo(project){
     toDoFormDate.classList.add("text", "toDoFormInput");
     toDoFormDate.setAttribute("type", "date");
 
+    const toDoFormDateLabel = document.createElement("label");
+    toDoFormDateLabel.id = "toDoFormDateLabel";
+    toDoFormDateLabel.setAttribute("for", "toDoFormDate");
+    toDoFormDateLabel.textContent = "Due Date:";
+
     const toDoFormContent = document.createElement("textarea");
     toDoFormContent.id = "toDoFormContent";
     toDoFormContent.classList.add("text", "toDoFormInput");
@@ -56,6 +61,7 @@ export default function newToDo(project){
     toDoForm.appendChild(toDoFormTitle);
     toDoForm.appendChild(toDoFormDesc);
     toDoForm.appendChild(toDoFormDate);
+    toDoForm.appendChild(toDoFormDateLabel);
     toDoForm.appendChild(toDoFormContent);
     toDoForm.appendChild(toDoFormSubmit);
 }

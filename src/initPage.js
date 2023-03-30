@@ -5,7 +5,6 @@ const initPage = () => {
     main.id = "main";
     body.appendChild(main);
 
-
     const header = document.createElement("div");
     header.id = 'header';
     header.classList.add("text");

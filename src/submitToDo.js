@@ -29,7 +29,12 @@ export default function submitToDo(project, title, desc, date, content){
 
     const toDoDate = document.createElement("div");
     toDoDate.classList.add("text", "toDoDate");
-    toDoDate.textContent = date;
+    if (date === "") {
+        toDoDate.textContent = "No Due Date";
+    }
+    else {
+        toDoDate.textContent = "Due Date: " + date;
+    }
 
     const toDoContent = document.createElement("div");
     toDoContent.classList.add("text", "toDoContent");

@@ -8,8 +8,14 @@ export default function viewToDo(toDoCont, toDo, toDoObject){
 
     toDoCont.querySelector(".toDoTitle").textContent = toDoObject.title;
     toDoCont.querySelector(".toDoDesc").textContent = toDoObject.desc;
-    toDoCont.querySelector(".toDoDate").textContent = toDoObject.date;
     toDoCont.querySelector(".toDoContent").textContent = toDoObject.content;
+
+    if (toDoObject.date === ""){
+        toDoCont.querySelector(".toDoDate").textContent = "No Due Date";
+    }
+    else {
+        toDoCont.querySelector(".toDoDate").textContent = "Due Date: " + toDoObject.date;
+    }
 
     console.log("ToDo selected: " + toDoObject.title);
 }

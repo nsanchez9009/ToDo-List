@@ -224,6 +224,13 @@ body {
             border: none;
         }
 
+        #toDoFormDateLabel {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+            text-align: end;
+            align-self: center;
+        }
+
         #toDoFormContent {
             grid-column: 1 / 5;
             grid-row: 3 / 8;
@@ -281,7 +288,8 @@ body {
             grid-column: 4 / 5;
             grid-row: 1 / 2;
             font-size: 20px;
-            text-align: end;
+            text-align: center;
+            align-self: center;
             border: none;
         }
 
