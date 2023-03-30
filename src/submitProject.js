@@ -43,6 +43,7 @@ export default function submitProject(project, projectCont, input){
     addToDo.textContent = "+";
     addToDo.addEventListener("click", () => {
         newToDo(project);
+        expandProject.src = chevronDown;
         viewProject(project);
     });
 

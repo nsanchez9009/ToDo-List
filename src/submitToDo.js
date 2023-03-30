@@ -45,5 +45,10 @@ export default function submitToDo(project, title, desc, date, content){
 
     toDoCont.appendChild(toDo);
 
+    const toDoName = document.createElement('div');
+    toDoName.classList.add("toDoName", "text");
+    toDoName.textContent = toDoObject.title;
+    project.appendChild(toDoName);
+
     viewProject(project);
 }

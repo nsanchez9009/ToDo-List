@@ -5,10 +5,10 @@ export default function hideProject(project){
         project.removeChild(project.lastChild);
     }
 
-    // else {
-    //     const ToDos = document.querySelectorAll(".project[projectNum] > .toDos");
-    //     ToDos.forEach((toDo) => {
-    //         toDo.style.display = "none";
-    //     });
-    // }
+    else {
+        const ToDos = project.querySelectorAll(".toDoName");
+        ToDos.forEach((toDo) => {
+            toDo.style.display = "none";
+        });
+    }
 }
